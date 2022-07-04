@@ -7,6 +7,8 @@ dependencies:
         - django==4.0.6
         - djangorestframework==3.13.1
         - djangorestframework-simplejwt==5.2.0
+        - drf-yasg
+        - django-filter
         - flake8==4.0.1
         - gunicorn==20.1.0
         - django-cors-headers==3.13.0

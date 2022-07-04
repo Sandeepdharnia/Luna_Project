@@ -43,6 +43,8 @@ INSTALLED_APPS = [
 
     #3rd party
     'rest_framework',
+    'drf_yasg',
+    'django_filters'
 ]
 
 MIDDLEWARE = [
