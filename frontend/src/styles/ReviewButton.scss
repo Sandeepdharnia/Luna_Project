@@ -1,0 +1,29 @@
+.like-btn {
+  background-color: rgba(145, 145, 145, 60%);
+  border: none;
+  padding: 0.5rem;
+  color: white;
+  font-weight: 100;
+  border-radius: 99px 0 0 99px;
+  width: 100%;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(145, 145, 145, 100%);
+  }
+}
+
+.comment-btn {
+  background-color: rgba(145, 145, 145, 60%);
+  border: none;
+  padding: 0.5rem;
+  color: white;
+  font-weight: 100;
+  border-radius: 0 99px 99px 0;
+  width: 100%;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(145, 145, 145, 100%);
+  }
+}
