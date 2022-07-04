@@ -11,7 +11,7 @@ before_script:
 
 pull:
   stage: pull
-  allow_failure: True
+  # allow_failure: True
   script:
     - docker pull "$CI_REGISTRY_IMAGE":latest
 
