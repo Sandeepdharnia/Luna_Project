@@ -15,7 +15,7 @@ from rest_framework import filters
 
 
 class CreateCommentView(ListCreateAPIView):
-    queryset = Commnet.object.all(
+    queryset = Comment.object.all(
     permission_classes = []
     filter_backends = [filters.SearchFilter]
     search_fields = ['content']
