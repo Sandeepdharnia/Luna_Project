@@ -11,7 +11,7 @@ class Comment(models.Model):
     post_date = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=200)
     title_tag = models.CharField(max_length=200)
-    author = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
+    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     body = models.TextField()
 
 

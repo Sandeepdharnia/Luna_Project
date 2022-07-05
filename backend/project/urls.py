@@ -37,5 +37,7 @@ schema_view = get_schema_view(
 urlpatterns = [
    path('backend/admin/', admin.site.urls),
    path('backend/api/auth/', include('registration.urls')),
-   path('backend/api/', include('users.urls')),
+   path('backend/api/', include('comments.urls')),
+
+   # path('backend/api/', include('users.urls')),
 ]
