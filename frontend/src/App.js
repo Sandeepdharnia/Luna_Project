@@ -7,6 +7,7 @@ import Profile from "./pages/Profile";
 import SearchRestaurants from "./pages/SearchRestaurants";
 import SearchReviews from "./pages/SearchReviews";
 import SearchUsers from "./pages/SearchUsers";
+import Restaurant from "./pages/Restaurant";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               <Route path="users" element={<SearchUsers />} />
             </Route>
             <Route path="profile" element={<Profile />} />
+            <Route path="restaurant" element={<Restaurant />} />
           </Route>
         </Routes>
       </BrowserRouter>
