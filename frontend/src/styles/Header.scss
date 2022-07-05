@@ -4,6 +4,11 @@
   align-items: center;
   justify-content: space-between;
   min-height: 5vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
 
   &__logo {
     padding-block: 0.5rem;
