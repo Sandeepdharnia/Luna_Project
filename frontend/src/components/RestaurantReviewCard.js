@@ -1,6 +1,7 @@
 import "../styles/RestaurantReviewCard.scss";
 import "../styles/ReviewButton.scss";
 import userImg from "../assets/user_sample.jpg";
+import LikeIcon from "../assets/like.svg";
 
 const RestaurantReviewCard = () => {
   return (
@@ -24,7 +25,10 @@ const RestaurantReviewCard = () => {
             </p>
           </div>
           <div className="reviewsCard__btn-container">
-            <button className="like-btn">thumbUp Like 63</button>
+            <button className="like-btn">
+              <img className="reviewsCard__likeIcon" src={LikeIcon} alt="" />
+              <span>Like</span> 63
+            </button>
             <button className="comment-btn">Comment 23</button>
           </div>
           <div className="reviewsCard__comments">
