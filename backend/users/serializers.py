@@ -4,7 +4,30 @@ from rest_framework import serializers
 User = get_user_model()
 
 
-class UserSerializer(serializers.ModelSerializer):  # creating a serializer for the custom user
+class UserCreateSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User  # taking the model of users.model as a reference
-        fields = ['username']   # what is shown
+        model = User
+        fields = '__all__'
+
+
+# class UserValidationSerializer(serializers.ModelSerializer):
+#     username = serializers.CharField(required=True)
+#     password = serializers.CharField(required=True)
+#
+#     class Meta:
+#         model = User
+#         fields = ['email', 'username', 'password']
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'email', 'username', 'first_name', 'last_name', 'date_joined']
+
+
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['avatar', 'email', 'username', 'first_name', 'last_name',
+                  'is_active', 'date_joined', 'following', 'friends']
+

@@ -22,6 +22,10 @@ const Home = () => {
           <button className="search-btn">Search</button>
         </form>
       </div>
+      <div className="home__title">
+        <h1>BEST RATED RESTAURANTS</h1>
+        <hr />
+      </div>
       <div className="home__card-section">
         <Grid>
           <RestaurantRatingCard />
