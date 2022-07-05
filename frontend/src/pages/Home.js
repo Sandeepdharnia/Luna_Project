@@ -1,7 +1,6 @@
 import "../styles/Home.scss";
 import restaurantImg from "../assets/restaurant_sample.jpg";
 import RestaurantRatingCard from "../components/RestaurantRatingCard";
-import Header from "../components/Header";
 import Grid from "../components/Grid";
 import "../styles/ReviewButton.scss";
 
