@@ -1,0 +1,41 @@
+.home {
+  background-color: aquamarine;
+  min-height: 90vh;
+
+  &__top-section {
+    img {
+      height: 351px;
+      width: 100%;
+      object-fit: cover;
+      position: relative;
+    }
+  }
+
+  &__card-section {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  &__form {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__input {
+    padding: 1rem 2rem;
+    width: 500px;
+    border: none;
+    border-radius: 5px;
+
+    &:focus {
+      outline: 2px solid #e47d31;
+    }
+  }
+}
