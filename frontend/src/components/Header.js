@@ -11,7 +11,7 @@ const Header = () => {
             <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <NavLink to="search">Search</NavLink>
+            <NavLink to="search/restaurants">Search</NavLink>
           </li>
           <li>
             <NavLink to="profile">Profile</NavLink>
