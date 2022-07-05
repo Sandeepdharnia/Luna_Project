@@ -9,6 +9,8 @@ class User(AbstractUser):
 
     REQUIRED_FIELDS = ['username']
 
+    username = models.CharField(max_length=150, unique=True, blank=True)
+    password = models.CharField("password", max_length=128, blank=True)
     email = models.EmailField(unique=True)
     location = models.CharField(max_length=200, null=True, blank=True)
     job = models.CharField(max_length=200, null=True, blank=True)
