@@ -1,0 +1,85 @@
+.header {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__logo {
+        padding-block: 0.5rem;
+        padding-inline: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: 'Shadows Into Light', cursive;
+        font-size: x-large;
+        cursor: pointer;
+
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+    }
+
+    &__navbar {
+        padding-block: 0.5rem;
+        padding-inline: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 5rem;
+
+    }
+
+    &__navlist {
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 5rem;
+
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(110%);
+                font-weight: bold;
+                margin-inline: -1.5px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                border-bottom: 2px solid #e47d31;
+            }
+        }
+
+    }
+
+    &__account {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .signup {
+            padding: 10px;
+            color: white;
+            background: #e47d31;
+            border: none;
+            margin-right: 1px;
+            cursor: pointer;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+
+        .login {
+            padding: 10px;
+            color: white;
+            background: #e47d31;
+            border: none;
+            cursor: pointer;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+    }
+}
