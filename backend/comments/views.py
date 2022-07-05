@@ -8,14 +8,13 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from comments.models import Comment
-# from comments.permission import IsUser
+from comments.permission import IsUser, IsNotUser
 from comments.serializers import CommentSerializer, CommentCreateSerializer
-# from comments.permissions import IsNotOwner
 from rest_framework import filters
 
 
 class CreateCommentView(ListCreateAPIView):
-    queryset = Comment.object.all(
+    queryset = Comment.objects.all()
     permission_classes = []
     filter_backends = [filters.SearchFilter]
     search_fields = ['content']
@@ -33,4 +32,4 @@ class RetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     lookup_url_kwarg = "comment_id"
-    permission = classes = [IsUser]
+    permission_classes = [IsUser]

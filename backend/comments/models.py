@@ -6,12 +6,14 @@ from django.db import models
 
 User = get_user_model()
 
+
 class Comment(models.Model):
+    post_date = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=200)
     title_tag = models.CharField(max_length=200)
-    author = models.ForeignKey(User, on_delete=models.SET_NULL,blank=True, null=True)
+    author = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
     body = models.TextField()
-    post_date = models.DateTimeField(auto_now_add=True)
+
 
     # created = models.DateTimeField(auto_now_add=True)
     # content = models.CharField(max_length=2000)
