@@ -1,4 +1,5 @@
 import "../styles/Header.scss";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -7,13 +8,13 @@ const Header = () => {
       <div className="header__navbar">
         <ul className="header__navlist">
           <li>
-            <button>Home</button>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <button>Search</button>
+            <NavLink to="search">Search</NavLink>
           </li>
           <li>
-            <button>Profile</button>
+            <NavLink to="profile">Profile</NavLink>
           </li>
         </ul>
         <ul className="header__account">
