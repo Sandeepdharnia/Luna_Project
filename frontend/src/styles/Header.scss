@@ -37,10 +37,12 @@
     justify-content: space-between;
     gap: 5rem;
 
-    button {
+    a {
       background: none;
       border: none;
       cursor: pointer;
+      color: black;
+      text-decoration: none;
 
       &:hover {
         transform: scale(110%);
@@ -51,6 +53,16 @@
         border-bottom: 2px solid #e47d31;
       }
     }
+  }
+
+  .active {
+    color: #e47d31;
+    transform: scale(110%);
+    font-weight: bold;
+    margin-inline: -1.5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e47d31;
   }
 
   &__account {
