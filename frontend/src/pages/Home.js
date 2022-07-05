@@ -1,6 +1,7 @@
 import "../styles/Home.scss";
 import restaurantImg from "../assets/restaurant_sample.jpg";
 import RestaurantRatingCard from "../components/RestaurantRatingCard";
+import Header from "../components/Header";
 import Grid from "../components/Grid";
 import "../styles/ReviewButton.scss";
 
@@ -21,6 +22,10 @@ const Home = () => {
           </label>
           <button className="search-btn">Search</button>
         </form>
+      </div>
+      <div className="home__title">
+        <h1>BEST RATED RESTAURANTS</h1>
+        <hr />
       </div>
       <div className="home__card-section">
         <Grid>
