@@ -1,5 +1,5 @@
 import "../styles/Header.scss";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -19,7 +19,9 @@ const Header = () => {
         </ul>
         <ul className="header__account">
           <li>
-            <button className="signup">SIGNUP</button>
+            <Link to="registration" className="signup">
+              SIGNUP
+            </Link>
           </li>
           <li>
             <button className="login">LOGIN</button>
