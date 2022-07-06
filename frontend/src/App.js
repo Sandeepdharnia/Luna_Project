@@ -10,6 +10,7 @@ import SearchUsers from "./pages/SearchUsers";
 import Restaurant from "./pages/Restaurant";
 import RestaurantReview from "./components/RestaurantReview";
 import CreateReview from "./components/CreateReview";
+import Registration from "./pages/Registration";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<Home />} />
             <Route path="search/" element={<Search />}>
+              {/* The 3 nested routes are the inner pages for the main search page */}
               <Route path="restaurants" element={<SearchRestaurants />} />
               <Route path="reviews" element={<SearchReviews />} />
               <Route path="users" element={<SearchUsers />} />
@@ -27,6 +29,8 @@ function App() {
             {/* <Route path="review" element={<RestaurantReview />} /> */}
             {/* <Route path="createreview" element={<CreateReview />} /> */}
             <Route path="restaurant" element={<Restaurant />} />
+            {/* Below are the pages related to the registration / sign-up */}
+            <Route path="registration" element={<Registration />} />
           </Route>
         </Routes>
       </BrowserRouter>

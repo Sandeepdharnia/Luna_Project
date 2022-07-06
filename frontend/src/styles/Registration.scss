@@ -1,0 +1,37 @@
+.registration {
+  min-height: 70vh;
+  padding-top: 7vh;
+  display: grid;
+  place-content: center;
+
+  &__title-container {
+    margin-bottom: 5rem;
+    text-align: center;
+
+    hr {
+      width: 150px;
+      margin: 0 auto;
+      border: none;
+      border-bottom: 2px solid #e47d31;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+
+    input {
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      padding: 0.5rem 1rem;
+      width: 400px;
+
+      &:focus {
+        outline: none;
+        border: 1px solid #e47d31;
+      }
+    }
+  }
+}
