@@ -21,7 +21,7 @@ const CreateReview = () => {
             employees."
           ></textarea>
         </label>
-        <button className="search-btn">Search</button>
+        <button className="search-btn">SUBMIT</button>
       </form>
     </section>
   );
