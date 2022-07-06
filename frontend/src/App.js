@@ -12,6 +12,7 @@ import RestaurantReview from "./components/RestaurantReview";
 import CreateReview from "./components/CreateReview";
 import Verification from "./pages/Verification";
 import Registration from "./pages/Registration";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             {/* Below are the pages related to the registration / sign-up */}
             <Route path="registration" element={<Registration />} />
             <Route path="verification" element={<Verification />} />
+            <Route path="login" element={<Login />} />
           </Route>
         </Routes>
       </BrowserRouter>
