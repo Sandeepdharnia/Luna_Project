@@ -1,6 +1,7 @@
 import "../styles/RestaurantRatingCard.scss";
 import star from "../assets/star.svg";
 import restaurantImg from "../assets/restaurant_sample.jpg";
+import { NavLink } from "react-router-dom";
 
 const RestaurantRatingCard = () => {
   return (

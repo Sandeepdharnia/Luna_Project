@@ -2,9 +2,9 @@ import RestaurantOverview from "../components/RestaurantOverview";
 
 const Restaurant = () => {
     return (
-        <>
-            <RestaurantOverview />
-        </>
+        <main className="restaurant">
+        <RestaurantOverview />
+        </main>
     );
 };
 
