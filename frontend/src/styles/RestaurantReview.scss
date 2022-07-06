@@ -74,4 +74,28 @@
       transform: scale(105%);
     }
   }
+
+  &__comment-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex: 1;
+    padding-right: 2rem;
+
+    label {
+      width: 100%;
+    }
+
+    input {
+      padding: 0.5rem;
+      width: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+
+      &:focus {
+        outline: none;
+        border: 1px solid #e47d31;
+      }
+    }
+  }
 }
