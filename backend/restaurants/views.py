@@ -1,3 +1,67 @@
+from django.contrib.auth import get_user_model
 from django.shortcuts import render
 
 # Create your views here.
+from rest_framework.generics import ListCreateAPIView, GenericAPIView, get_object_or_404, RetrieveUpdateDestroyAPIView
+from rest_framework.response import Response
+
+from project.permissions import IsStaffOrReadOnly
+from restaurants.models import Restaurant
+from restaurants.permissions import IsAuthor
+from restaurants.serializers import RestaurantSerializer
+
+
+User = get_user_model()
+
+
+class FillView(ListCreateAPIView):
+    # just a class so error won't be thrown in the restaurants.urls
+    pass
+
+
+class ListCreateRestaurant(ListCreateAPIView):    # class to create + list all restaurants
+    queryset = Restaurant.objects.all()
+    permission_classes = [IsStaffOrReadOnly]
+    serializer_class = RestaurantSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
+
+
+class GetRestaurantsFromSpecificUser(GenericAPIView):    # class to get all restaurants from given user
+    queryset = Restaurant.objects.all()
+    permission_classes = [IsStaffOrReadOnly]
+    serializer_class = RestaurantSerializer
+    lookup_url_kwarg = "user_id"
+
+    def get(self, request, *args, **kwargs):
+        specific_user = get_object_or_404(User, pk=self.kwargs.get("user_id"))
+        queryset = self.get_queryset().filter(author=specific_user)
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+
+# class GetSpecificRestaurant(GenericAPIView):    # getting all data from given restaurant
+#     queryset = Restaurant.objects.all()
+#     permission_classes = [IsStaffOrReadOnly]
+#     serializer_class = RestaurantSerializer
+#     lookup_url_kwarg = "restaurant_id"
+#
+#     def get(self, request, *args, **kwargs):
+#         specific_restaurant = get_object_or_404(Restaurant, pk=self.kwargs.get("restaurant_id"))
+#         queryset = self.get_queryset().filter(id=specific_restaurant.id)
+#         serializer = self.get_serializer(queryset, many=True)
+#         return Response(serializer.data)
+
+
+class RetrieveUpdateDeleteSpecificRestaurant(RetrieveUpdateDestroyAPIView):
+    queryset = Restaurant.objects.all()
+    permission_classes = [IsStaffOrReadOnly, IsAuthor]
+    serializer_class = RestaurantSerializer
+    lookup_url_kwarg = "restaurant_id"
+
+    def get(self, request, *args, **kwargs):
+        specific_restaurant = get_object_or_404(Restaurant, pk=self.kwargs.get("restaurant_id"))
+        queryset = self.get_queryset().filter(id=specific_restaurant.id)
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)

@@ -1,10 +1,11 @@
 from django.contrib import admin
 
-from registration.models import Registration
+# Register your models here.
+from restaurants.models import Restaurant
 
 
-class RegistrationAdmin(admin.ModelAdmin):
-    list_display = ['email', 'username']
+class RestaurantAdmin(admin.ModelAdmin):
+    list_display = ['name', 'street', 'country', 'category']
 
 
-admin.site.register(Registration, RegistrationAdmin)
+admin.site.register(Restaurant, RestaurantAdmin)
