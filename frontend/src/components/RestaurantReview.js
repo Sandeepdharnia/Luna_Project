@@ -2,6 +2,7 @@ import "../styles/RestaurantReview.scss";
 import star from "../assets/star.svg";
 import userImg from "../assets/user_sample.jpg";
 import { useState } from "react";
+import RestaurantComment from "./RestaurantComment";
 
 const RestaurantReview = () => {
   const [showComment, setShowComment] = useState(false);
@@ -67,6 +68,14 @@ const RestaurantReview = () => {
           </button>
         </div>
       </div>
+      {/* Additional condition needs to be added here based on the length of an array. If the length is > 0, then show the comments */}
+      {showComment && (
+        <>
+          <RestaurantComment />
+          <RestaurantComment />
+          <RestaurantComment />
+        </>
+      )}
     </article>
   );
 };
