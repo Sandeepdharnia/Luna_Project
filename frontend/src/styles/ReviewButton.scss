@@ -7,6 +7,9 @@
   border-radius: 99px 0 0 99px;
   width: 100%;
   cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 
   &:hover {
     background: rgba(145, 145, 145, 100%);

@@ -1,0 +1,17 @@
+.restaurantComment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+
+  h3 {
+    color: #e47d31;
+  }
+
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

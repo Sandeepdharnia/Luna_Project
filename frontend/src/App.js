@@ -8,6 +8,8 @@ import SearchRestaurants from "./pages/SearchRestaurants";
 import SearchReviews from "./pages/SearchReviews";
 import SearchUsers from "./pages/SearchUsers";
 import Restaurant from "./pages/Restaurant";
+import RestaurantReview from "./components/RestaurantReview";
+import CreateReview from "./components/CreateReview";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
               <Route path="users" element={<SearchUsers />} />
             </Route>
             <Route path="profile" element={<Profile />} />
+            {/* <Route path="review" element={<RestaurantReview />} /> */}
+            {/* <Route path="createreview" element={<CreateReview />} /> */}
             <Route path="restaurant" element={<Restaurant />} />
           </Route>
         </Routes>
