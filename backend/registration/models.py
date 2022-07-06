@@ -44,3 +44,12 @@ def create_registration_profile(sender, instance, *args, **kwargs):
             [f'{user_email}'],
             fail_silently=False,
         )
+
+
+class ResetPassword(models.Model):
+    email = models.EmailField()
+    code = models.CharField(max_length=5, default=code_generator)
+    code_used = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.email
