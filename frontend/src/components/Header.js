@@ -24,7 +24,9 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <button className="login">LOGIN</button>
+            <Link to="login" className="login">
+              LOGIN
+            </Link>
           </li>
         </ul>
       </div>
