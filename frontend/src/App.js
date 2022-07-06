@@ -10,6 +10,7 @@ import SearchUsers from "./pages/SearchUsers";
 import Restaurant from "./pages/Restaurant";
 import RestaurantReview from "./components/RestaurantReview";
 import CreateReview from "./components/CreateReview";
+import Verification from "./pages/Verification";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             {/* <Route path="review" element={<RestaurantReview />} /> */}
             {/* <Route path="createreview" element={<CreateReview />} /> */}
             <Route path="restaurant" element={<Restaurant />} />
+            <Route path="verification" element={<Verification />} />
           </Route>
         </Routes>
       </BrowserRouter>
