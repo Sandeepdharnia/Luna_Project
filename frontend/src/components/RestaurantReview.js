@@ -1,8 +1,14 @@
 import "../styles/RestaurantReview.scss";
 import star from "../assets/star.svg";
 import userImg from "../assets/user_sample.jpg";
+import { useState } from "react";
 
 const RestaurantReview = () => {
+  const [showComment, setShowComment] = useState(false);
+
+  const handleShowComment = () =>
+    showComment ? setShowComment(!showComment) : setShowComment(!showComment);
+
   return (
     <article className="review">
       <div className="review__header">
@@ -31,11 +37,34 @@ const RestaurantReview = () => {
           quibusdam veniam quaerat nulla, provident aliquam.
         </p>
         <div className="review__comment">
-          <div className="review__btn-container">
-            <button className="like-btn">thumbUp Like 63</button>
-            <button className="comment-btn">Comment 23</button>
-          </div>
-          <button className="viewAll-comments-btn">View all comments</button>
+          {!showComment && (
+            <div className="review__btn-container">
+              <button className="like-btn">thumbUp Like 63</button>
+              <button className="comment-btn">Comment 23</button>
+            </div>
+          )}
+          {showComment && (
+            <form className="review__comment-form">
+              <label>
+                <input
+                  type="text"
+                  name="comment"
+                  id="comment"
+                  placeholder="Write a comment..."
+                />
+              </label>
+              <button
+                type="submit"
+                className="search-btn"
+                style={{ padding: "0.2rem 2rem", width: "auto" }}
+              >
+                Post
+              </button>
+            </form>
+          )}
+          <button className="viewAll-comments-btn" onClick={handleShowComment}>
+            {showComment ? "Hide" : "View all comments"}
+          </button>
         </div>
       </div>
     </article>
