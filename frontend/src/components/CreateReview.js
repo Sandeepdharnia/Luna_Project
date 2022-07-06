@@ -1,6 +1,12 @@
 import "../styles/CreateReview.scss";
+import { Link, useNavigate } from "react-router-dom";
 
 const CreateReview = () => {
+
+  const navigate = useNavigate()
+
+  const handleNavigate = () => navigate("/restaurant")
+
   return (
     <section className="createReview">
       <div className="createReview__star-rating-container">
@@ -21,7 +27,7 @@ const CreateReview = () => {
             employees."
           ></textarea>
         </label>
-        <button className="search-btn">SUBMIT</button>
+        <button className="search-btn" onClick={handleNavigate}>SUBMIT</button>
       </form>
     </section>
   );
