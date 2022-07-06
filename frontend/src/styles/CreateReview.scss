@@ -1,0 +1,27 @@
+.createReview {
+  padding-top: 10vh;
+  max-width: 500px;
+
+  &__star-rating-container {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+
+    textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    button {
+      align-self: flex-end;
+    }
+  }
+}
