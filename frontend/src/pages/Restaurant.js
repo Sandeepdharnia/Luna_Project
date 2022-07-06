@@ -3,8 +3,14 @@ import RestaurantOverview from "../components/RestaurantOverview";
 import RestaurantReview from "../components/RestaurantReview";
 import clockIcon from "../assets/clock.svg";
 import moneyIcon from "../assets/money.svg";
+import { useNavigate } from "react-router-dom";
 
 const Restaurant = () => {
+
+    const navigate = useNavigate();
+
+    const handleNavigate = () => navigate("/createreview");
+
     return (
         <main className="restaurant">
             <RestaurantOverview />
@@ -44,8 +50,11 @@ const Restaurant = () => {
                         <button
                             className="search-btn"
                             style={{ padding: "0.5rem 1.5rem", width: "200px" }}
+                            onClick={handleNavigate}
                         >
+
                             WRITE REVIEW
+
                         </button>
                         <button
                             className="search-btn"
