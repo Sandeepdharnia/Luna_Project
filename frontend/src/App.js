@@ -10,6 +10,7 @@ import SearchUsers from "./pages/SearchUsers";
 import Restaurant from "./pages/Restaurant";
 import RestaurantReview from "./components/RestaurantReview";
 import CreateReview from "./components/CreateReview";
+import Verification from "./pages/Verification";
 import Registration from "./pages/Registration";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
             <Route path="restaurant" element={<Restaurant />} />
             {/* Below are the pages related to the registration / sign-up */}
             <Route path="registration" element={<Registration />} />
+            <Route path="verification" element={<Verification />} />
           </Route>
         </Routes>
       </BrowserRouter>
