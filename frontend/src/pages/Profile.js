@@ -6,7 +6,7 @@ import restaurantIcon from "../assets/restaurant.svg";
 import commentIcon from "../assets/comment.svg";
 import userImg from "../assets/user_sample.jpg";
 import UserReview from "../components/UserReview";
-import { useState } from "react";
+import UserComment from "../components/UserComment";
 
 const Profile = () => {
   return (
@@ -51,7 +51,11 @@ const Profile = () => {
           <div className="profile__reviews-container">
             <h3>REVIEWS</h3>
             <div className="profile__review">
-              <UserReview />
+              {/* <UserReview /> */}
+              <UserComment />
+              <UserComment />
+              <UserComment />
+              <UserComment />
             </div>
           </div>
         </div>
