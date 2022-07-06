@@ -49,8 +49,11 @@ INSTALLED_APPS = [
 
     #3rd party
     'rest_framework',
+    'rest_framework_simplejwt',
     'drf_yasg',
-    'django_filters'
+    'django_filters',
+    'corsheaders',
+
 ]
 
 MIDDLEWARE = [
@@ -58,7 +61,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -164,7 +167,8 @@ REST_FRAMEWORK = {
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=5),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=5)
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=5),
+    'USER_ID_FIELD': 'username',
 }
 
 # CORS Headers settings
@@ -185,3 +189,11 @@ SWAGGER_SETTINGS = {
 }
 
 AUTH_USER_MODEL = 'users.User'
+
+# Email settings
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS')
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = os.environ.get('EMAIL_PORT')

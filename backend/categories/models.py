@@ -18,7 +18,7 @@ class Category(models.Model):
         unique=True,
         choices=restaurant_type,
     )
-    slug = models.SlugField()
+    # slug = models.SlugField()
 
     def __str__(self):
-        return self.get_type_display()
+        return self.type
