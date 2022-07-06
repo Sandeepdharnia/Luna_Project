@@ -34,4 +34,11 @@
       }
     }
   }
+
+  &__message {
+    width: clamp(200px, 100%, 500px);
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.5;
+  }
 }

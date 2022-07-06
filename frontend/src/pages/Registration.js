@@ -25,6 +25,19 @@ const Registration = () => {
           Register
         </button>
       </form>
+
+      {/* Below is the message shown to the user after successful registration
+          This should be shown based on a condition. If login successful, 
+          show message, else we need to hide it */}
+
+      {/* <div className="registration__message">
+        <p>
+          Thanks for your registration. Our hard working monkeys are preparing a
+          digital message called E-Mail that will be sent to you soon. Since
+          monkeys arent good in writing the message could end up in you junk
+          folder. Our apologies for any inconvienience.
+        </p>
+      </div> */}
     </main>
   );
 };
