@@ -17,8 +17,6 @@ const Verification = () => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
-  console.log(values);
-
   return (
     <main className="verification">
       <div className="verification__title-container">
