@@ -12,13 +12,15 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Comment',
+            name='Review',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('content', models.TextField()),
+                ('content', models.CharField(max_length=200)),
                 ('date_created', models.DateTimeField(auto_now_add=True)),
-                ('date_modified', models.DateTimeField(auto_now_add=True)),
-                ('likes', models.IntegerField()),
+                ('date_modified', models.DateTimeField(auto_now=True)),
+                ('rating', models.IntegerField(blank=True, choices=[(1, 1), (2, 2), (3, 3), (4, 4), (5, 5)], null=True)),
+                ('like', models.IntegerField(blank=True, null=True)),
+                ('is_liked', models.BooleanField(default=False)),
             ],
         ),
     ]
