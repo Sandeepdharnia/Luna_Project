@@ -30,7 +30,7 @@ class MyUserAdmin(UserAdmin):   # using the built-in class 'UserAdmin' from djan
         ('Groups', {'fields': ('groups',)}),
     )
     # fields which are shown when looking at a list of instances
-    list_display = ('email', 'first_name', 'last_name', 'is_active', 'is_staff', 'is_superuser')
+    list_display = ('id', 'email', 'first_name', 'last_name', 'is_active', 'is_staff', 'is_superuser')
     # display when going to the user section of admin
     ordering = ('email',) # order users by email in alphabetic order
 
