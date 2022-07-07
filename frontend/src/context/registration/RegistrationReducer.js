@@ -9,6 +9,13 @@ const registrationReducer = (state, action) => {
         ...state,
         userValues: { email: action.payload },
       };
+
+    case "REGISTER_USER":
+      return {
+        ...state,
+        statusCode: action.payload,
+      };
+
     default:
       return state;
   }

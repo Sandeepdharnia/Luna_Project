@@ -13,6 +13,7 @@ export const RegistrationProvider = ({ children }) => {
       password: "",
       repeatPassword: "",
     },
+    statusCode: null,
   };
 
   const [state, dispatch] = useReducer(registrationReducer, initialState);
@@ -21,6 +22,7 @@ export const RegistrationProvider = ({ children }) => {
     <RegistrationContext.Provider
       value={{
         userValues: state.userValues,
+        statusCode: state.statusCode,
         dispatch,
       }}
     >
