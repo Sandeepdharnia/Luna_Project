@@ -5,7 +5,6 @@ from django.shortcuts import render
 from rest_framework.generics import ListCreateAPIView, GenericAPIView, get_object_or_404, RetrieveUpdateDestroyAPIView
 from rest_framework.response import Response
 
-from categories.models import Category
 from project.permissions import IsStaffOrReadOnly
 from restaurants.models import Restaurant, CATEGORY_CHOICES
 from restaurants.permissions import IsAuthor
