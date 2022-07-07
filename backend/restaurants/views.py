@@ -5,6 +5,7 @@ from django.shortcuts import render
 from rest_framework.generics import ListCreateAPIView, GenericAPIView, get_object_or_404, RetrieveUpdateDestroyAPIView
 from rest_framework.response import Response
 
+from categories.models import Category
 from project.permissions import IsStaffOrReadOnly
 from restaurants.models import Restaurant
 from restaurants.permissions import IsAuthor
@@ -63,5 +64,18 @@ class RetrieveUpdateDeleteSpecificRestaurant(RetrieveUpdateDestroyAPIView):
     def get(self, request, *args, **kwargs):
         specific_restaurant = get_object_or_404(Restaurant, pk=self.kwargs.get("restaurant_id"))
         queryset = self.get_queryset().filter(id=specific_restaurant.id)
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+
+class ListRestaurantByGivenCategory(GenericAPIView):
+    queryset = Restaurant.objects.all()
+    serializer_class = RestaurantSerializer
+    permission_classes = [IsStaffOrReadOnly]
+    lookup_url_kwarg = "category_id"
+
+    def get(self, request, *args, **kwargs):
+        category_type = get_object_or_404(Category, pk=self.kwargs.get("category_id"))
+        queryset = self.get_queryset().filter(category=category_type.id)
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)

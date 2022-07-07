@@ -13,12 +13,23 @@ restaurant_type = (
 
 
 class Category(models.Model):
+    id = models.BigAutoField(primary_key=True)
     type = models.CharField(
         max_length=200,
         unique=True,
         choices=restaurant_type,
     )
     # slug = models.SlugField()
+    # test = models.CharField(max_length=200, blank=True, null=True)
 
     def __str__(self):
-        return self.type
+        return self.get_type_display()
+
+
+try:
+    for choices in restaurant_type:
+        category = Category(type=choices[0])
+        if category not in Category.objects.all():
+            category.save()
+except Category.DoesNotExist:
+    pass
