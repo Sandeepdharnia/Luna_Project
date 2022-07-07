@@ -12,7 +12,6 @@ from django.db import models
 from django.db.models.signals import pre_save, post_save
 from django.dispatch import receiver
 
-from categories.models import Category, restaurant_type
 
 User = get_user_model()
 
