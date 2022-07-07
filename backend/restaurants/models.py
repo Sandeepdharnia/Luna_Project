@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from django.core.validators import MaxValueValidator, RegexValidator, BaseValidator
+from django.core.validators import MaxValueValidator, RegexValidator
 from django.db import models
 
 
@@ -9,9 +9,9 @@ from django.db import models
 #     ("1", "00"),
 #
 # )
-from django.utils.deconstruct import deconstructible
+from django.db.models.signals import pre_save, post_save
+from django.dispatch import receiver
 
-from categories.models import Category
 
 User = get_user_model()
 
@@ -21,10 +21,23 @@ prices_choices = (
     ("3", "$$$"),
 )
 
+CATEGORY_CHOICES = (
+    ('1', "Kebab"),
+    ('2', "Indian Food"),
+    ('3', "Swiss Food"),
+    ('4', "Columbian Food"),
+    ('5', "Peruvian Food"),
+    ('6', "Hot Dogs"),
+    ('7', "Italian Food"),
+)
+
 
 class Restaurant(models.Model):
     name = models.CharField(max_length=30)
-    category = models.ForeignKey(to=Category, on_delete=models.SET_NULL, null=True, blank=True)
+    # category_id = models.CharField(to=Category,
+    #                                on_delete=models.SET_NULL,
+    #                                null=True, blank=True)
+    category_id = models.CharField(max_length=20, choices=CATEGORY_CHOICES, verbose_name="category")
     street = models.TextField(max_length=20)
     city = models.CharField(max_length=20)
     zip = models.PositiveIntegerField(validators=[
@@ -51,4 +64,14 @@ class Restaurant(models.Model):
                                blank=True, null=True,
                                related_name="user_restaurants")
 
+    # def save(self, *args, **kwargs):
+    #     if self.pk is None:  # create
+    #         self.model = Category.objects.create(type="test")
+    #     super().save(*args, **kwargs)  # Call the "real" save() method.
 
+
+# @receiver(post_save, sender=Category)
+# def create_categories(sender, instance, *args, **kwargs):
+#     category, created = Category.objects.create(type="test")
+#     if created:
+#         category.save()
