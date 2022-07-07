@@ -26,10 +26,10 @@ class Category(models.Model):
         return self.get_type_display()
 
 
-try:
-    for choices in restaurant_type:
-        category = Category(type=choices[0])
-        if category not in Category.objects.all():
-            category.save()
-except Category.DoesNotExist:
-    pass
+# try:
+#     for choices in restaurant_type:
+#         category = Category(type=choices[0])
+#         if category not in Category.objects.all():
+#             category.save()
+# except Category.DoesNotExist:
+#     pass
