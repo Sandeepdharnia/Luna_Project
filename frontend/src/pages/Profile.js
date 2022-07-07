@@ -7,6 +7,7 @@ import commentIcon from "../assets/comment.svg";
 import userImg from "../assets/user_sample.jpg";
 import UserReview from "../components/UserReview";
 import UserComment from "../components/UserComment";
+import UserRestaurant from "../components/UserRestaurant";
 
 const Profile = () => {
   return (
@@ -52,10 +53,8 @@ const Profile = () => {
             <h3>REVIEWS</h3>
             <div className="profile__review">
               {/* <UserReview /> */}
-              <UserComment />
-              <UserComment />
-              <UserComment />
-              <UserComment />
+              {/* <UserComment /> */}
+              <UserRestaurant />
             </div>
           </div>
         </div>
