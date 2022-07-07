@@ -13,8 +13,8 @@ import CreateReviewPages from "./pages/CreateReview";
 import Verification from "./pages/Verification";
 import Registration from "./pages/Registration";
 import Login from "./pages/Login";
+import NewRestaurant from "./components/NewRestaurant";
 //import CreateReview from "./components/CreateReview";
-
 
 function App() {
   return (
@@ -33,6 +33,7 @@ function App() {
             {/* <Route path="review" element={<RestaurantReview />} /> */}
             <Route path="restaurant" element={<Restaurant />} />
             <Route path="createreview" element={<CreateReviewPages />} />
+            <Route path="newrestaurant" element={<NewRestaurant />} />
             {/* Below are the pages related to the registration / sign-up */}
             <Route path="registration" element={<Registration />} />
             <Route path="verification" element={<Verification />} />
