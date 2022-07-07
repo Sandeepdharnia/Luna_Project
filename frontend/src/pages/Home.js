@@ -3,8 +3,22 @@ import restaurantImg from "../assets/restaurant_sample.jpg";
 import RestaurantRatingCard from "../components/RestaurantRatingCard";
 import Grid from "../components/Grid";
 import "../styles/ReviewButton.scss";
+import { useContext, useEffect } from "react";
+import restaurantContext from "../context/restaurant/RestaurantContext";
+import { list_restaurants } from "../context/restaurant/RestaurantActions";
 
 const Home = () => {
+  const { restaurants, dispatch } = useContext(restaurantContext);
+
+  useEffect(() => {
+    const getRestaurantData = async () => {
+      const restaurantData = await list_restaurants();
+      dispatch({ type: "GET_RESTAURANTS", payload: restaurantData });
+    };
+
+    getRestaurantData();
+  }, [dispatch]);
+
   return (
     <main className="home">
       <div className="home__top-section">
@@ -28,10 +42,9 @@ const Home = () => {
       </div>
       <div className="home__card-section">
         <Grid>
-          <RestaurantRatingCard />
-          <RestaurantRatingCard />
-          <RestaurantRatingCard />
-          <RestaurantRatingCard />
+          {restaurants.map(restaurant => (
+            <RestaurantRatingCard key={restaurant.id} {...restaurant} />
+          ))}
         </Grid>
       </div>
     </main>

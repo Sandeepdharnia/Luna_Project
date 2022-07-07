@@ -22,8 +22,8 @@ class Category(models.Model):
     # slug = models.SlugField()
     # test = models.CharField(max_length=200, blank=True, null=True)
 
-    def __str__(self):
-        return self.get_type_display()
+    # def __str__(self):
+    #     return self.get_type_display()
 
 
 # try:

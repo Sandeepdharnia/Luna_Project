@@ -1,7 +1,3 @@
-// const actions = {
-//   actions.addEmail = "addEmail"
-// }
-
 const registrationReducer = (state, action) => {
   switch (action.type) {
     case "ADD_EMAIL":
