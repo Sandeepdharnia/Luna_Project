@@ -1,6 +1,24 @@
 import "../styles/Verification.scss";
+import InputField from "../components/InputField";
+import inputs from "../InputFieldsVerification";
+import { useState } from "react";
 
 const Verification = () => {
+  const [values, setValues] = useState({
+    email: "",
+    code: "",
+    username: "",
+    location: "",
+    password: "",
+    repeatPassword: "",
+  });
+
+  const handleChange = e => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
+
+  console.log(values);
+
   return (
     <main className="verification">
       <div className="verification__title-container">
@@ -10,54 +28,14 @@ const Verification = () => {
 
       <form className="verification__form">
         <div className="verification__input-container">
-          <label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="E-Mail address"
+          {inputs.map(input => (
+            <InputField
+              key={input.id}
+              {...input}
+              value={values[input.name]}
+              handleChange={handleChange}
             />
-          </label>
-          <label>
-            <input
-              type="text"
-              name="code"
-              id="code"
-              placeholder="Validation Code"
-            />
-          </label>
-          <label>
-            <input
-              type="text"
-              name="username"
-              id="username"
-              placeholder="Username"
-            />
-          </label>
-          <label>
-            <input
-              type="text"
-              name="location"
-              id="location"
-              placeholder="Location"
-            />
-          </label>
-          <label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
-            />
-          </label>
-          <label>
-            <input
-              type="password"
-              name="password_repeat"
-              id="password_repeat"
-              placeholder="Repeat Password"
-            />
-          </label>
+          ))}
         </div>
         <button
           type="submit"
