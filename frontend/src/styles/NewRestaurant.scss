@@ -1,0 +1,55 @@
+.newRestaurant {
+  min-height: 70vh;
+  padding-top: 7vh;
+  display: grid;
+  place-content: center;
+
+  &__title-container {
+    margin-bottom: 5rem;
+    text-align: center;
+
+    hr {
+      width: 300px;
+      margin: 0 auto;
+      border: none;
+      border-bottom: 2px solid #e47d31;
+    }
+  }
+
+  &__input-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+    gap: 4rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+
+    input,
+    select {
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      padding: 0.5rem 1rem;
+      background: white;
+      width: 100%;
+
+      &:focus {
+        outline: none;
+        border: 1px solid #e47d31;
+      }
+    }
+  }
+
+  input[type="file"] {
+    background: #e47d31;
+  }
+
+  &__input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
