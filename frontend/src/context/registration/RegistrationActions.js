@@ -23,3 +23,13 @@ export const verify_user = async user_info => {
 
   return response;
 }
+
+export const check_login_user = async user_info => {
+  const response = await axios.post(`${LUNA_URL}/auth/token/`, {
+    email: user_info.email,
+    password: user_info.password
+  });
+  console.log(response);
+
+  return response;
+}

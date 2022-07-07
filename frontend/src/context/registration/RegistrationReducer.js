@@ -1,6 +1,8 @@
 export const ACTIONS = {
   VALIDATE_USER: "validate_user",
   VERIFY_USER: "verify_user",
+  ADD_LOGIN: "add_login",
+  CHECK_LOGIN: "check_login",
 }
 
 const registrationReducer = (state, action) => {
@@ -30,6 +32,21 @@ const registrationReducer = (state, action) => {
       return {
         ...state,
         userValues: {...state.userValues}
+      }
+
+    case ACTIONS.ADD_LOGIN:
+      // console.log(action.payload.email)
+      // console.log(action.payload.password)
+      console.log(action.payload.target.value)
+      return {
+        ...state,
+        userValues: {...state.userValues, [action.payload.target.name]: action.payload.target.value}
+      }
+
+    case ACTIONS.CHECK_LOGIN:
+      return {
+        ...state,
+        statusCode: action.payload
       }
 
     default:
