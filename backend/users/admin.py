@@ -21,7 +21,7 @@ class MyUserAdmin(UserAdmin):   # using the built-in class 'UserAdmin' from djan
     fieldsets = (
         (None, {'fields': ('email', 'username', 'password')}),
         # fields asked when trying to create the user
-        ('Personal info', {'fields': ('first_name', 'last_name')}),
+        ('Personal info', {'fields': ('first_name', 'last_name', 'profile_picture', 'description')}),
         # different sections when editing the profile
         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'user_permissions')}),
         # permissions supplied when creating the user
@@ -30,7 +30,7 @@ class MyUserAdmin(UserAdmin):   # using the built-in class 'UserAdmin' from djan
         ('Groups', {'fields': ('groups',)}),
     )
     # fields which are shown when looking at a list of instances
-    list_display = ('email', 'first_name', 'last_name', 'is_active', 'is_staff', 'is_superuser')
+    list_display = ('id', 'email', 'first_name', 'last_name', 'is_active', 'is_staff', 'is_superuser')
     # display when going to the user section of admin
     ordering = ('email',) # order users by email in alphabetic order
 

@@ -16,3 +16,4 @@ class UserProfileSerializer(serializers.ModelSerializer):
         fields = ['avatar', 'email', 'username', 'first_name', 'last_name',
                   'is_active', 'date_joined', 'following', 'friends']
 
+
