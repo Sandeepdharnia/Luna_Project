@@ -5,7 +5,7 @@ from restaurants.models import Restaurant
 
 
 class RestaurantAdmin(admin.ModelAdmin):
-    list_display = ['name', 'street', 'country', 'category']
+    list_display = ['name', 'street', 'country', 'category_id']
 
 
 admin.site.register(Restaurant, RestaurantAdmin)
