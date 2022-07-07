@@ -3,12 +3,18 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { RegistrationProvider } from "./context/registration/RegistrationContext";
+import { RestaurantProvider } from "./context/restaurant/RestaurantContext";
+import { UserProvider } from "./context/users/UserContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <RegistrationProvider>
-      <App />
+      <RestaurantProvider>
+        <UserProvider>
+          <App />
+        </UserProvider>
+      </RestaurantProvider>
     </RegistrationProvider>
   </React.StrictMode>
 );
