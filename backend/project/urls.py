@@ -38,6 +38,6 @@ urlpatterns = [
    path('backend/admin/', admin.site.urls),
    path('backend/api/auth/', include('registration.urls')),
    path('backend/api/', include('comments.urls')),
-   # path('backend/api/restaurants/', include('restaurants.urls')),
+   path('backend/api/restaurants/', include('restaurants.urls')),
    path('backend/api/', include('users.urls')),
 ]
