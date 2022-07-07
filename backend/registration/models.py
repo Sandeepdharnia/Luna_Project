@@ -16,12 +16,11 @@ def code_generator(length=5):
 
 class Registration(models.Model):
     email = models.CharField(max_length=50)
-    username = models.CharField(max_length=30, unique=True)
+    username = models.CharField(max_length=30, unique=True, primary_key=True)
     password = models.CharField(max_length=30, unique=True)
-    user = models.OneToOneField(to=User, on_delete=models.CASCADE,
-                                primary_key=True,
-                                related_name='registration_profile',
-                                )
+    # user = models.OneToOneField(to=User, on_delete=models.CASCADE,
+    #                             related_name='registration_profile',
+    #                             )
     code = models.CharField(max_length=5, default=code_generator)
 
     def __str__(self):
@@ -30,7 +29,7 @@ class Registration(models.Model):
 
 @receiver(post_save, sender=User)
 def create_registration_profile(sender, instance, *args, **kwargs):
-    profile, created = Registration.objects.get_or_create(user=instance)
+    profile, created = ResetPassword.objects.get_or_create(user=instance, email=instance.email)
     if created:
         profile.save()
 
@@ -44,3 +43,15 @@ def create_registration_profile(sender, instance, *args, **kwargs):
             [f'{user_email}'],
             fail_silently=False,
         )
+
+
+class ResetPassword(models.Model):
+    email = models.EmailField()
+    code = models.CharField(max_length=5, default=code_generator)
+    code_used = models.BooleanField(default=False)
+    user = models.OneToOneField(to=User, on_delete=models.CASCADE,
+                                related_name='registration_profile',
+                                )
+
+    def __str__(self):
+        return self.email

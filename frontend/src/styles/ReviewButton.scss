@@ -7,6 +7,9 @@
   border-radius: 99px 0 0 99px;
   width: 100%;
   cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 
   &:hover {
     background: rgba(145, 145, 145, 100%);
@@ -41,5 +44,21 @@
 
   &:hover {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.3rem 0.3rem;
+  cursor: pointer;
+  background: white;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+  &:focus {
+    background: rgb(239, 239, 239);
+    border-left: 3px solid #e47d31;
   }
 }
