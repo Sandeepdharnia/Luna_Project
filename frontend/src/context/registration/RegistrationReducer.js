@@ -44,9 +44,12 @@ const registrationReducer = (state, action) => {
       }
 
     case ACTIONS.CHECK_LOGIN:
+      // localStorage.setItem('token', state.token)
+      // if(token):
       return {
         ...state,
-        statusCode: action.payload
+        statusCode: action.payload.status,
+        token: action.payload.data.access
       }
 
     default:
