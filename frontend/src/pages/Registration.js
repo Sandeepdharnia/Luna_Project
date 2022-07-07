@@ -1,6 +1,16 @@
 import "../styles/Registration.scss";
+import { useContext, useEffect, useReducer } from "react";
+import registrationContext from "../context/registration/RegistrationContext";
 
 const Registration = () => {
+  const { userValues, dispatch } = useContext(registrationContext);
+
+  const handleChange = e => {
+    dispatch({ type: "ADD_EMAIL", payload: e.target.value });
+  };
+
+  console.log(userValues);
+
   return (
     <main className="registration">
       <div className="registration__title-container">
@@ -15,6 +25,7 @@ const Registration = () => {
             name="email"
             id="email"
             placeholder="E-Mail address"
+            onChange={handleChange}
           />
         </label>
         <button
