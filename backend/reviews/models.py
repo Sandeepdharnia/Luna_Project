@@ -5,6 +5,7 @@ from restaurants.models import Restaurant
 
 User = get_user_model()
 
+#
 
 class Review(models.Model):
     content = models.CharField(max_length=200)
