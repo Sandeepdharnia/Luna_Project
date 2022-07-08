@@ -4,15 +4,28 @@ import RestaurantReview from "../components/RestaurantReview";
 import clockIcon from "../assets/clock.svg";
 import moneyIcon from "../assets/money.svg";
 import { useNavigate, useParams } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import restaurantContext from "../context/restaurant/RestaurantContext";
+import { get_specific_restaurant_review } from "../context/restaurant/RestaurantActions";
 
 const Restaurant = () => {
   const navigate = useNavigate();
-  const { restaurants } = useContext(restaurantContext);
+  const { restaurants, restaurantReviews, dispatch } =
+    useContext(restaurantContext);
   const { id } = useParams();
-
+  restaurants.sort((a, b) => a.id - b.id);
   const handleNavigate = () => navigate("/createreview");
+
+  useEffect(() => {
+    const getRestaurantReviewData = async () => {
+      const reviewData = await get_specific_restaurant_review(id - 1);
+      dispatch({ type: "GET_RESTAURANT_REVIEWS", payload: reviewData });
+    };
+
+    getRestaurantReviewData();
+  }, [dispatch, id]);
+
+  console.log(restaurantReviews);
 
   return (
     <main className="restaurant">
@@ -36,9 +49,9 @@ const Restaurant = () => {
               Filter
             </button>
           </form>
-          <RestaurantReview />
-          <RestaurantReview />
-          <RestaurantReview />
+          {restaurantReviews.map(review => (
+            <RestaurantReview key={review.id} {...review} />
+          ))}
         </div>
         <div className="restaurant__details-container">
           <div className="restaurant__hours-container">

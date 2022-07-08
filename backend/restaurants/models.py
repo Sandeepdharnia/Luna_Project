@@ -64,6 +64,9 @@ class Restaurant(models.Model):
                                blank=True, null=True,
                                related_name="user_restaurants")
 
+    def __str__(self):
+        return self.name
+
     # def save(self, *args, **kwargs):
     #     if self.pk is None:  # create
     #         self.model = Category.objects.create(type="test")

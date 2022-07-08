@@ -7,8 +7,6 @@ import phone from "../assets/phone.svg";
 import web from "../assets/web.svg";
 
 const RestaurantOverview = ({ restaurant }) => {
-  console.log(restaurant);
-
   return (
     <>
       <div className="restaurantTitelCard">

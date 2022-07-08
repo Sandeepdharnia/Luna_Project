@@ -6,6 +6,7 @@ const RestaurantContext = createContext();
 export const RestaurantProvider = ({ children }) => {
   const initialState = {
     restaurants: [],
+    restaurantReviews: [],
   };
 
   const [state, dispatch] = useReducer(restaurantReducer, initialState);
@@ -14,6 +15,7 @@ export const RestaurantProvider = ({ children }) => {
     <RestaurantContext.Provider
       value={{
         restaurants: state.restaurants,
+        restaurantReviews: state.restaurantReviews,
         dispatch,
       }}
     >
