@@ -18,7 +18,7 @@ class User(AbstractUser):
     things_i_love = models.CharField(max_length=20, blank=True, null=True)
     description = models.CharField(max_length=200, blank=True, null=True)
     profile_picture = models.ImageField(blank=True, null=True)
-    is_active = models.BooleanField(default=False)
+    # is_active = models.BooleanField(default=False)
 
     def __str__(self):
         return self.username
