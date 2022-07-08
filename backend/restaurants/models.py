@@ -29,6 +29,20 @@ CATEGORY_CHOICES = (
     ('5', "Peruvian Food"),
     ('6', "Hot Dogs"),
     ('7', "Italian Food"),
+    ('8', "Asian Food"),
+    ('9', "Ethiopian Food"),
+    ('10', "Japanese Food"),
+    ('11', "Fusion Food"),
+    ('12', "Veggies"),
+    ('13', "Only Meat"),
+    ('14', "Chinese Food"),
+    ('15', "Deutsch Food"),
+    ('16', "French Cuisine"),
+    ('17', "Brewery"),
+    ('18', "Mexican Food"),
+    ('19', "Afghanistan Food"),
+    ('20', "Moroccan Food"),
+    ('21', "Philippian Food"),
 )
 
 
