@@ -6,7 +6,7 @@ import genericImg from "../assets/generic_restaurant.png";
 
 const RestaurantRatingCard = ({ name, country, city, street, zip, image }) => {
   return (
-    <button className="card-btn" onClick={handleNavigate}>
+    <button className="card-btn">
       <article className="ratingCard">
         <div className="ratingCard__heading">
           <h2>{name}</h2>
