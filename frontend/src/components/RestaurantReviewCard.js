@@ -3,7 +3,7 @@ import "../styles/ReviewButton.scss";
 import userImg from "../assets/user_sample.jpg";
 import LikeIcon from "../assets/like.svg";
 
-const RestaurantReviewCard = () => {
+const RestaurantReviewCard = ({ content, liked_by }) => {
   return (
     <button className="card-btn">
       <article className="reviewsCard">
@@ -19,27 +19,24 @@ const RestaurantReviewCard = () => {
         <div className="reviewsCard__body">
           <div className="reviewsCard__info">
             <h2>Colinz Bar</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, ad
-              sapiente illum nesciunt cumque facilis?
-            </p>
+            <p>{content}</p>
           </div>
           <div className="reviewsCard__btn-container">
             <button className="like-btn">
               <img className="reviewsCard__likeIcon" src={LikeIcon} alt="" />
-              <span>Like</span> 63
+              <span>Likes</span> {liked_by.length}
             </button>
             <button className="comment-btn">Comment 23</button>
           </div>
           <div className="reviewsCard__comments">
             <h3>Latest comments</h3>
             <div>
-              <h4>Colin Wirz</h4>
-              <p>Actually you have no teste!</p>
+              <h4>Sandeep</h4>
+              <p>This is super delicious</p>
             </div>
             <div>
-              <h4>Laurent Meyer</h4>
-              <p>Sorry bro!</p>
+              <h4>Adrien</h4>
+              <p>Tastes like garbage!!! never again</p>
             </div>
           </div>
         </div>

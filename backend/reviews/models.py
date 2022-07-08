@@ -11,7 +11,7 @@ class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name="user_reviews")
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
-    # restaurant = models.ForeignKey(Restaurant, on_delete=models.SET_NULL, null=True, related_name="reviews")
+    # restaurant = models.ForeignKey(Restaurant, on_delete=models.SET_NULL, null=True, related_name="specific_restaurant")
     rate_choices = (
         (1, 1),
         (2, 2),

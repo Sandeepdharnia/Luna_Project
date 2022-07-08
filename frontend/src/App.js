@@ -14,9 +14,9 @@ import Verification from "./pages/Verification";
 import Registration from "./pages/Registration";
 import Login from "./pages/Login";
 import NewRestaurant from "./components/NewRestaurant";
-import UserComment from "./components/UserComment";
+import UserCommentInnerPage from "./pages/UserCommentInnerPage";
 import UserRestaurant from "./components/UserRestaurant";
-import UserReview from "./components/UserReview";
+import UserReviewInnerPage from "./pages/UserReviewInnerPage";
 import UserEdit from "./components/UserEdit";
 //import CreateReview from "./components/CreateReview";
 
@@ -36,13 +36,13 @@ function App() {
             </Route>
             <Route path="profile" element={<Profile />}>
               {/* The 4 nested routes are the inner pages for the profile page */}
-              <Route path="review" element={<UserReview />} />
-              <Route path="comment" element={<UserComment />} />
+              <Route path="review" element={<UserReviewInnerPage />} />
+              <Route path="comment" element={<UserCommentInnerPage />} />
               <Route path="restaurant" element={<UserRestaurant />} />
               <Route path="edit" element={<UserEdit />} />
             </Route>
             {/* <Route path="review" element={<RestaurantReview />} /> */}
-            <Route path="restaurant" element={<Restaurant />} />
+            <Route path="restaurants/:id" element={<Restaurant />} />
             <Route path="createreview" element={<CreateReviewPages />} />
             <Route path="newrestaurant" element={<NewRestaurant />} />
             {/* Below are the pages related to the registration / sign-up */}
