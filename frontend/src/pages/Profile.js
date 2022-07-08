@@ -9,6 +9,7 @@ import userImg from "../assets/user_sample.jpg";
 import UserReview from "../components/UserReview";
 import UserComment from "../components/UserComment";
 import UserRestaurant from "../components/UserRestaurant";
+import UserEdit from "../components/UserEdit";
 
 const Profile = () => {
   return (
@@ -37,10 +38,12 @@ const Profile = () => {
               {" "}
               <img src={restaurantIcon} alt="" /> Restaurants
             </NavLink>
-            <button className="profile-btn">
-              {" "}
-              <img src={editIcon} alt="" /> Edit Profile
-            </button>
+            <NavLink to="edit" className="profile-btn">
+              <button className="profile-btn">
+                {" "}
+                <img src={editIcon} alt="" /> Edit Profile
+              </button>
+            </NavLink>
           </div>
         </div>
         <div className="profile__middle-container">
@@ -87,3 +90,4 @@ const Profile = () => {
   );
 };
 export default Profile;
+

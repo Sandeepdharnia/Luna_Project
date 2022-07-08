@@ -1,18 +1,12 @@
 from django.urls import path
 from django.urls import path
 
-from comments.views import CreateCommentView, RetrieveUpdateDestroyAPIViewComments
-
+from comments.views import CreateCommentView, RetrieveUpdateDestroyAPIViewComments, CountComment
 
 urlpatterns = [
     path('', CreateCommentView.as_view()),
-    path('<int:post_id>/', RetrieveUpdateDestroyAPIViewComments.as_view()),
+    path('<int:comment_id>/', RetrieveUpdateDestroyAPIViewComments.as_view()),
+    #get all comments
+    path('all_comments/<int:user_id>/', CountComment.as_view()),
 
-
-
-
-    # path('toggle-like/<int:post_id>/', ToggleLikePostView.as_view()),
-    # path('likes/', ListLikedPostView.as_view()),
-    # path('following/', ListFollowingPostsFromUserView.as_view()),
-    # path('user/<int:user_id>/', ListSpecificUserPostView.as_view())
 ]

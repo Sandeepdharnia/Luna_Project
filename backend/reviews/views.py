@@ -138,3 +138,33 @@ class CountLikesFromUser(GenericAPIView):
 
 class ReviewsCurrentUserCommented(GenericAPIView):
     pass
+
+
+class ReviewCreateForRestaurantView(ListCreateAPIView):
+    queryset = Review.objects.all()
+    permission_classes = []
+    # filter_backends = [filters.SearchFilter]
+    search_fields = ['content']
+
+    def get_serializer_class(self):
+        if self.request.method == "POST":
+            return ReviewCreateSerializer
+        return ReviewSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+
+class CountReviewFromRestaurant(GenericAPIView):
+    serializer_class = ReviewSerializer
+    queryset = Review.objects.all()
+    #permission_classes = [IsStaffOrReadOnly]
+
+    def get(self, request, *args, **kwargs):
+
+        current_restaurant = self.request.user
+        queryset = self.get_queryset()
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+    #.filter(liked_by=current_restaurant)
