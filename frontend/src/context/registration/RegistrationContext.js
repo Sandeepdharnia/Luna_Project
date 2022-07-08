@@ -25,6 +25,7 @@ export const RegistrationProvider = ({ children }) => {
         userValues: state.userValues,
         statusCode: state.statusCode,
         token: state.token,
+        isLoggedIn: false,
         dispatch,
       }}
     >

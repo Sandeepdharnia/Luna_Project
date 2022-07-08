@@ -3,6 +3,7 @@ export const ACTIONS = {
   VERIFY_USER: "verify_user",
   ADD_LOGIN: "add_login",
   CHECK_LOGIN: "check_login",
+  LOGIN_LOGOUT: "login_logout",
 }
 
 const registrationReducer = (state, action) => {
@@ -37,7 +38,7 @@ const registrationReducer = (state, action) => {
     case ACTIONS.ADD_LOGIN:
       // console.log(action.payload.email)
       // console.log(action.payload.password)
-      console.log(action.payload.target.value)
+      // console.log(action.payload.target.value)
       return {
         ...state,
         userValues: {...state.userValues, [action.payload.target.name]: action.payload.target.value}
@@ -49,7 +50,14 @@ const registrationReducer = (state, action) => {
       return {
         ...state,
         statusCode: action.payload.status,
-        token: action.payload.data.access
+        token: action.payload.data.access,
+      }
+
+    case ACTIONS.LOGIN_LOGOUT:
+      console.log(action.payload.isLoggedIn)
+      return {
+        ...state,
+        isLoggedIn: action.payload.isLoggedIn
       }
 
     default:
