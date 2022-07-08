@@ -24,8 +24,8 @@ print('base dir', BASE_DIR)
 SECRET_KEY = 'django-insecure-rqsz+na@kc*c=ta7z@&+82=%*m$plktwt4rotj_wwgz)1!gr8^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG', "True") == "True"
-# DEBUG = True
+# DEBUG = os.environ.get('DJANGO_DEBUG', "True") == "True"
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ['http://68.183.212.234', 'https://luna-team1.propulsion-learn.ch']
