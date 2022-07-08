@@ -21,7 +21,8 @@ class MyUserAdmin(UserAdmin):   # using the built-in class 'UserAdmin' from djan
     fieldsets = (
         (None, {'fields': ('email', 'username', 'password')}),
         # fields asked when trying to create the user
-        ('Personal info', {'fields': ('first_name', 'last_name', 'profile_picture', 'description')}),
+        ('Personal info', {'fields': ('first_name', 'last_name', 'profile_picture', 'description', 'things_i_love',
+                                      'location')}),
         # different sections when editing the profile
         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'user_permissions')}),
         # permissions supplied when creating the user

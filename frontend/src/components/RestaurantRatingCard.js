@@ -3,10 +3,28 @@ import star from "../assets/star.svg";
 import restaurantImg from "../assets/restaurant_sample.jpg";
 import { NavLink } from "react-router-dom";
 import genericImg from "../assets/generic_restaurant.png";
+import { useContext } from "react";
+import restaurantContext from "../context/restaurant/RestaurantContext";
+import { useNavigate } from "react-router-dom";
 
-const RestaurantRatingCard = ({ name, country, city, street, zip, image }) => {
+const RestaurantRatingCard = ({
+  id,
+  name,
+  country,
+  city,
+  street,
+  zip,
+  image,
+}) => {
+  const { restaurants } = useContext(restaurantContext);
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate(`/restaurants/${id}`);
+  };
+
   return (
-    <button className="card-btn">
+    <button className="card-btn" onClick={handleNavigate}>
       <article className="ratingCard">
         <div className="ratingCard__heading">
           <h2>{name}</h2>
