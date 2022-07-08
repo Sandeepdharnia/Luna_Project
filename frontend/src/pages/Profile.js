@@ -52,8 +52,8 @@ const Profile = () => {
           <div className="profile__reviews-container">
             <h3>REVIEWS</h3>
             <div className="profile__review">
-              {/* <UserReview /> */}
-              {/* <UserComment /> */}
+              <UserReview />
+              <UserComment />
               <UserRestaurant />
             </div>
           </div>
