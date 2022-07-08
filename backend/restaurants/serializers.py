@@ -27,7 +27,3 @@ class RestaurantSerializer(serializers.ModelSerializer):
         model = Restaurant
         fields = ['id', 'name', 'street', 'city', 'zip', 'country', 'website', 'phone_number', 'email', 'price_level',
                   'author', 'image_url']
-
-    def to_representation(self, instance):
-        representation = super().to_representation(instance)
-        representation['image'] = representation.pop('image_url')
