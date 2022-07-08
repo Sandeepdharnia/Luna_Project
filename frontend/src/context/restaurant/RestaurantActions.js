@@ -3,7 +3,7 @@ import axios from "axios";
 const BEARER_TOKEN =
   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU3Njk0MDA0LCJpYXQiOjE2NTcyNjIwMDQsImp0aSI6ImMxZGYzOGRlMDQ5ZjQ1MmU4MmNhNzAyMzg3NmVkYjRmIiwidXNlcl9pZCI6IkRhbmllbCJ9.Bqb9V70x0iIIsTYYYTfbcL0EiH67re3E7KKJ3tVNXto";
 
-const LUNA_URL = "http://localhost:8000/backend/api";
+const LUNA_URL = "https://luna-team1.propulsion-learn.ch/backend/api";
 
 //get all restaurants
 export const list_restaurants = async () => {
