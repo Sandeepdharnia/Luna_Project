@@ -1,4 +1,5 @@
 import "../styles/Profile.scss";
+import { Outlet, NavLink } from "react-router-dom";
 import banner from "../assets/new-york.jpg";
 import starIcon from "../assets/star.svg";
 import editIcon from "../assets/edit.svg";
@@ -24,18 +25,18 @@ const Profile = () => {
             <p>Laurent's profile</p>
           </div>
           <div className="profile__btn-container">
-            <button className="profile-btn">
+            <NavLink to="review" className="profile-btn">
               {" "}
               <img src={starIcon} alt="" /> Reviews
-            </button>
-            <button className="profile-btn">
+            </NavLink>
+            <NavLink to="comment" className="profile-btn">
               {" "}
               <img src={commentIcon} alt="" /> Comments
-            </button>
-            <button className="profile-btn">
+            </NavLink>
+            <NavLink to="restaurant" className="profile-btn">
               {" "}
               <img src={restaurantIcon} alt="" /> Restaurants
-            </button>
+            </NavLink>
             <button className="profile-btn">
               {" "}
               <img src={editIcon} alt="" /> Edit Profile
@@ -52,9 +53,7 @@ const Profile = () => {
           <div className="profile__reviews-container">
             <h3>REVIEWS</h3>
             <div className="profile__review">
-              <UserReview />
-              <UserComment />
-              <UserRestaurant />
+              <Outlet />
             </div>
           </div>
         </div>
