@@ -1,11 +1,16 @@
 import "../styles/RestaurantRatingCard.scss";
 import star from "../assets/star.svg";
 import restaurantImg from "../assets/restaurant_sample.jpg";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const RestaurantRatingCard = () => {
+
+  const navigate = useNavigate();
+
+  const handleNavigate = () => navigate("/restaurant");
+
   return (
-    <button className="card-btn">
+    <button className="card-btn" onClick={handleNavigate}>
       <article className="ratingCard">
         <div className="ratingCard__heading">
           <h2>Restaurant Name</h2>

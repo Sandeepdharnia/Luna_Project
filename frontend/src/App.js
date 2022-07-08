@@ -14,6 +14,9 @@ import Verification from "./pages/Verification";
 import Registration from "./pages/Registration";
 import Login from "./pages/Login";
 import NewRestaurant from "./components/NewRestaurant";
+import UserComment from "./components/UserComment";
+import UserRestaurant from "./components/UserRestaurant";
+import UserReview from "./components/UserReview";
 //import CreateReview from "./components/CreateReview";
 
 function App() {
@@ -29,7 +32,12 @@ function App() {
               <Route path="reviews" element={<SearchReviews />} />
               <Route path="users" element={<SearchUsers />} />
             </Route>
-            <Route path="profile" element={<Profile />} />
+            <Route path="profile" element={<Profile />}>
+              {/* The 4 nested routes are the inner pages for the profile page */}
+              <Route path="review" element={<UserReview />} />
+              <Route path="comment" element={<UserComment />} />
+              <Route path="restaurant" element={<UserRestaurant />} />
+            </Route>
             {/* <Route path="review" element={<RestaurantReview />} /> */}
             <Route path="restaurant" element={<Restaurant />} />
             <Route path="createreview" element={<CreateReviewPages />} />
