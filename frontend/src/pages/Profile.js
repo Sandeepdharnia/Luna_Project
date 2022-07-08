@@ -6,12 +6,24 @@ import editIcon from "../assets/edit.svg";
 import restaurantIcon from "../assets/restaurant.svg";
 import commentIcon from "../assets/comment.svg";
 import userImg from "../assets/user_sample.jpg";
-import UserReview from "../components/UserReview";
-import UserComment from "../components/UserComment";
-import UserRestaurant from "../components/UserRestaurant";
+import { useContext, useEffect } from "react";
+import userContext from "../context/users/UserContext";
+import { get_logged_in_user } from "../context/users/UserActions";
+import genericImg from "../assets/generic_restaurant.png";
 import UserEdit from "../components/UserEdit";
 
 const Profile = () => {
+  const { loggedInUser, dispatch } = useContext(userContext);
+
+  useEffect(() => {
+    const getUserData = async () => {
+      const userData = await get_logged_in_user();
+      dispatch({ type: "GET_LOGGED_IN_USER", payload: userData });
+    };
+
+    getUserData();
+  }, [dispatch]);
+
   return (
     <main className="profile">
       <div className="profile__banner-container">
@@ -20,7 +32,13 @@ const Profile = () => {
       <section className="profile__main-container">
         <div className="profile__left-container">
           <div className="profile__img-container">
-            <img className="profile__img" src={userImg} alt="" />
+            <img
+              className="profile__img"
+              src={
+                loggedInUser[0] ? loggedInUser[0].profile_picture : genericImg
+              }
+              alt=""
+            />
           </div>
           <div>
             <p>Laurent's profile</p>
@@ -48,10 +66,10 @@ const Profile = () => {
         </div>
         <div className="profile__middle-container">
           <div className="profile__personal-info">
-            <h2>Laurent H.</h2>
-            <p>Zürich, Ch</p>
-            <p>6 reviews</p>
-            <p>210 comments</p>
+            <h2>{loggedInUser[0] ? loggedInUser[0].username : "loading"}</h2>
+            <p>{loggedInUser[0] ? loggedInUser[0].location : "loading"}</p>
+            <p>3 reviews</p>
+            <p>21 comments</p>
           </div>
           <div className="profile__reviews-container">
             <h3>REVIEWS</h3>
@@ -62,27 +80,25 @@ const Profile = () => {
         </div>
         <div className="profile__user-info">
           <div>
-            <h2>ABOUT LAURENT</h2>
+            <h2>
+              ABOUT {loggedInUser[0] ? loggedInUser[0].username : "loading"}
+            </h2>
           </div>
           <div>
             <h3>Location</h3>
-            <p>Zürich, CH</p>
+            <p>{loggedInUser[0] ? loggedInUser[0].location : "loading"}</p>
           </div>
           <div>
             <h3>Luna member since</h3>
-            <p>April, 2018</p>
+            <p>{loggedInUser[0] ? loggedInUser[0].date_joined : "loading"}</p>
           </div>
           <div>
             <h3>Things I love</h3>
-            <p>Everything</p>
+            <p>{loggedInUser[0] ? loggedInUser[0].things_i_love : "loading"}</p>
           </div>
           <div>
             <h3>Description</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
-              quaerat neque eaque, non nemo id culpa quam nam aliquid
-              consequatur, fugiat consectetur ipsum perspiciatis laborum.
-            </p>
+            <p>{loggedInUser[0] ? loggedInUser[0].description : "loading"}</p>
           </div>
         </div>
       </section>

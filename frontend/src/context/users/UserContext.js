@@ -6,6 +6,9 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const initialState = {
     users: [],
+    loggedInUser: {},
+    userComments: [],
+    userReviews: [],
   };
 
   const [state, dispatch] = useReducer(userReducer, initialState);
@@ -14,6 +17,9 @@ export const UserProvider = ({ children }) => {
     <UserContext.Provider
       value={{
         users: state.users,
+        loggedInUser: state.loggedInUser,
+        userComments: state.userComments,
+        userReviews: state.userReviews,
         dispatch,
       }}
     >

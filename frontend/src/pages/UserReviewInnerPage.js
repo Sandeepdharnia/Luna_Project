@@ -1,10 +1,10 @@
-import Grid from "../components/Grid";
-import RestaurantReviewCard from "../components/RestaurantReviewCard";
-import { useContext, useEffect } from "react";
+import "../styles/UserReviewInnerPage.scss";
+import UserReview from "../components/UserReview";
 import userContext from "../context/users/UserContext";
+import { useContext, useEffect } from "react";
 import { get_user_reviews } from "../context/users/UserActions";
 
-const SearchReviews = () => {
+const UserReviewInnerPage = () => {
   const { userReviews, loggedInUser, dispatch } = useContext(userContext);
 
   useEffect(() => {
@@ -19,13 +19,11 @@ const SearchReviews = () => {
   }, [dispatch, loggedInUser]);
 
   return (
-    <div className="search__card-section">
-      <Grid>
-        {userReviews.map(review => (
-          <RestaurantReviewCard key={review.id} {...review} />
-        ))}
-      </Grid>
-    </div>
+    <article className="userReview">
+      {userReviews.map(review => (
+        <UserReview key={review.id} {...review} />
+      ))}
+    </article>
   );
 };
-export default SearchReviews;
+export default UserReviewInnerPage;
