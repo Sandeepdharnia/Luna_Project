@@ -31,6 +31,9 @@ CATEGORY_CHOICES = (
     ('7', "Italian Food"),
 )
 
+def user_directory_path(instance, filename):
+    return f'user/{instance.id}/{filename}'
+
 
 class Restaurant(models.Model):
     name = models.CharField(max_length=30)
@@ -59,7 +62,7 @@ class Restaurant(models.Model):
                                    choices=prices_choices,
                                    default=1)
     # predefined price_level choices
-    image = models.ImageField(blank=True, null=True)
+    image = models.ImageField(max_length=255, blank=True, null=True, upload_to=user_directory_path)
     author = models.ForeignKey(to=User, on_delete=models.SET_NULL,
                                blank=True, null=True,
                                related_name="user_restaurants")
