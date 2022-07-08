@@ -16,7 +16,7 @@ class Comment(models.Model):
     date_modified = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     review = models.ForeignKey(to=Review, on_delete=models.SET_NULL, blank=True, null=True)
-    likes = models.IntegerField(blank=True, null=True)
+    likes = models.IntegerField(blank=True, null=True, verbose_name='like count')
 
     # body = models.TextField()
 

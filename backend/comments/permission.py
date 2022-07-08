@@ -1,8 +1,10 @@
 from rest_framework.permissions import BasePermission
 from rest_framework import permissions
+
+
 class IsUser(BasePermission):
-    def has_permission(self, request, view, obj):
-        if(obj.author == request.user):
+    def has_object_permission(self, request, view, obj):
+        if obj.user == request.user:
             return True
         elif request.method == "GET":
             return True
