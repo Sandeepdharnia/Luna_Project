@@ -45,7 +45,7 @@ function App() {
             {/* Below are the pages related to the registration / sign-up */}
             <Route path="registration" element={<Registration />} />
             <Route path="verification" element={<Verification />} />
-            <Route path="login" element={<Login />} />
+            <Route path="/login" element={<Login />} />
           </Route>
         </Routes>
       </BrowserRouter>

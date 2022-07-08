@@ -1,12 +1,13 @@
 import "../styles/Login.scss";
-import {useContext} from "react";
+import {useContext, useEffect} from "react";
 import RegistrationContext from "../context/registration/RegistrationContext";
 import {ACTIONS} from "../context/registration/RegistrationReducer";
 import {check_login_user} from "../context/registration/RegistrationActions";
+import {useNavigate} from "react-router-dom";
 
 const Login = () => {
-
-    const { userValues, dispatch} = useContext(RegistrationContext)
+    const navigate = useNavigate()
+    const { userValues, token, dispatch} = useContext(RegistrationContext)
 
   const handleInput = (event) => {
 
@@ -14,14 +15,20 @@ const Login = () => {
   }
 
   console.log(userValues)
+  console.log(token)
 
   const handleLogin = async e => {
       e.preventDefault()
       const response = await check_login_user(userValues)
-      dispatch({ type: ACTIONS.CHECK_LOGIN, payload: response.status})
+      dispatch({ type: ACTIONS.CHECK_LOGIN, payload: response})
+      localStorage.setItem('token', response.data.access)
   }
 
-
+  useEffect(() => {
+      if(localStorage.getItem('token')) {
+        navigate("/")
+      }
+  }, [])
 
   return (
     <main className="userLogin">
