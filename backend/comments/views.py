@@ -13,6 +13,8 @@ from comments.permission import IsUser, IsNotUser
 from comments.serializers import CommentSerializer, CommentCreateSerializer
 from rest_framework import filters
 
+from project.permissions import IsStaffOrReadOnly
+
 User = get_user_model()
 
 
@@ -36,3 +38,17 @@ class RetrieveUpdateDestroyAPIViewComments(RetrieveUpdateDestroyAPIView):
     serializer_class = CommentSerializer
     lookup_url_kwarg = "comment_id"
     permission_classes = [IsUser]
+
+
+class CountComment(GenericAPIView):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+    lookup_url_kwarg = "user_id"
+    permission_classes = [IsStaffOrReadOnly]
+
+    def get(self, request, *args, **kwargs):
+        queryset = self.get_queryset().filter(user=self.kwargs.get("user_id"))
+        # all_comments = self.request.user
+        # queryset = self.get_queryset()
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
