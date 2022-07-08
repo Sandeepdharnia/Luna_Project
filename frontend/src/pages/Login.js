@@ -27,6 +27,7 @@ const Login = () => {
 
   const handleToken = () => {
         if (localStorage.getItem('token')) {
+            console.log('test')
             navigate("/")
         }
     }
