@@ -3,7 +3,7 @@ from django.urls import path
 
 from reviews.views import ReviewCreateView, RetrieveUpdateDestroyAPIViewReview, GetReviewsFromSpecificUser, \
     UpdateSpecificReview, CreateLike, DeleteLike, CountLikesFromUser, ReviewsCurrentUserCommented, \
-    ReviewCreateForRestaurantView, CountReviewFromRestaurant
+    ReviewCreateForRestaurantView, CountReviewFromRestaurant, GetReviewsForSpecificRestaurant
 
 urlpatterns = [
     # create a review
@@ -19,6 +19,7 @@ urlpatterns = [
     path('user/<int:user_id>/', GetReviewsFromSpecificUser.as_view()),
     #Update a specific review (only by owner).
     #Delete a specific review (only by owner)
+    path("reviews/restaurant/<int:restaurant_id>/", GetReviewsForSpecificRestaurant.as_view()),
     path('<int:review_id>/', UpdateSpecificReview.as_view()),
     #Like a review.
     path('like/<int:review_id>/', CreateLike.as_view()),

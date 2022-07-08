@@ -6,6 +6,12 @@ const restaurantReducer = (state, action) => {
         restaurants: action.payload,
       };
 
+    case "GET_RESTAURANT_REVIEWS":
+      return {
+        ...state,
+        restaurantReviews: action.payload,
+      };
+
     default:
       return state;
   }

@@ -5,6 +5,7 @@ from rest_framework.generics import GenericAPIView,ListCreateAPIView, RetrieveUp
 from rest_framework.response import Response
 
 from project.permissions import IsStaffOrReadOnly
+from restaurants.models import Restaurant
 from reviews.models import Review
 from django.contrib.auth import get_user_model
 from rest_framework import filters
@@ -49,6 +50,18 @@ class GetReviewsFromSpecificUser(GenericAPIView):
 
     def get(self, request, *args, **kwargs):
         queryset = self.get_queryset().filter(user=self.kwargs.get("user_id"))
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+
+class GetReviewsForSpecificRestaurant(GenericAPIView):
+    queryset = Review.objects.all()
+    serializer_class = ReviewSerializer
+    lookup_url_kwarg = "restaurant_id"
+
+    def get(self, request, *args, **kwargs):
+        restaurant = get_object_or_404(Restaurant, pk=self.kwargs.get("restaurant_id"))
+        queryset = self.get_queryset().filter(restaurant=restaurant)
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 

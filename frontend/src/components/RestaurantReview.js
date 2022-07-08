@@ -4,7 +4,9 @@ import userImg from "../assets/user_sample.jpg";
 import { useState } from "react";
 import RestaurantComment from "./RestaurantComment";
 
-const RestaurantReview = () => {
+const RestaurantReview = ({ content, date_created, rating, liked_by }) => {
+  let date = new Date();
+
   const [showComment, setShowComment] = useState(false);
 
   const handleShowComment = () =>
@@ -18,7 +20,7 @@ const RestaurantReview = () => {
             <img src={userImg} alt="" />
           </div>
           <div className="review__header-text">
-            <h2>Laurent H.</h2>
+            <h2>Adrien</h2>
             <p>6 Reviews in total</p>
           </div>
           <div className="review__star-container">
@@ -29,18 +31,19 @@ const RestaurantReview = () => {
           </div>
         </div>
         <div className="review__time">
-          <p>05.07.2022 17:00</p>
+          <p>{`${date.getDay(date_created)} / ${date.getMonth(
+            date_created
+          )} / ${date.getFullYear(date_created)}`}</p>
         </div>
       </div>
       <div className="review__body">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro
-          quibusdam veniam quaerat nulla, provident aliquam.
-        </p>
+        <p>{content}</p>
         <div className="review__comment">
           {!showComment && (
             <div className="review__btn-container">
-              <button className="like-btn">thumbUp Like 63</button>
+              <button className="like-btn">
+                thumbUp Like {liked_by.length}
+              </button>
               <button className="comment-btn">Comment 23</button>
             </div>
           )}
