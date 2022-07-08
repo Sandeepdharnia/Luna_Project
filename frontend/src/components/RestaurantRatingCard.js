@@ -1,20 +1,16 @@
 import "../styles/RestaurantRatingCard.scss";
 import star from "../assets/star.svg";
 import restaurantImg from "../assets/restaurant_sample.jpg";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import genericImg from "../assets/generic_restaurant.png";
 
-const RestaurantRatingCard = () => {
-
-  const navigate = useNavigate();
-
-  const handleNavigate = () => navigate("/restaurant");
-
+const RestaurantRatingCard = ({ name, country, city, street, zip, image }) => {
   return (
     <button className="card-btn" onClick={handleNavigate}>
       <article className="ratingCard">
         <div className="ratingCard__heading">
-          <h2>Restaurant Name</h2>
-          <p>Address</p>
+          <h2>{name}</h2>
+          <p>{`${street} / ${city} - ${zip}, ${country} `}</p>
         </div>
         <div className="ratingCard__rating">
           <div className="ratingCard__icon-container">
@@ -26,7 +22,7 @@ const RestaurantRatingCard = () => {
           <p>68</p>
         </div>
         <div className="ratingCard__image">
-          <img src={restaurantImg} alt="" />
+          <img src={image === null ? `${genericImg}` : image} alt="" />
         </div>
       </article>
     </button>

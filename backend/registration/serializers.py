@@ -28,10 +28,11 @@ class UserCreateSerializer(serializers.ModelSerializer):
 class UserValidationSerializer(serializers.ModelSerializer):
     username = serializers.CharField(min_length=1)
     password = serializers.CharField(min_length=1)
+    location = serializers.CharField(min_length=1)
 
     class Meta:
         model = User
-        fields = ['email', 'username', 'password']
+        fields = ['email', 'username', 'password', 'location']
 
 
 class PasswordResetSerializer(serializers.ModelSerializer):
@@ -40,4 +41,3 @@ class PasswordResetSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['email', 'username', 'password']
-

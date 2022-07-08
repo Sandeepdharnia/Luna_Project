@@ -1,23 +1,24 @@
 import "../styles/Verification.scss";
 import InputField from "../components/InputField";
 import inputs from "../InputFieldsVerification";
-import { useState } from "react";
+import {useContext, useState} from "react";
+import registrationContext from "../context/registration/RegistrationContext";
+import {ACTIONS} from "../context/registration/RegistrationReducer";
+import {verify_user} from "../context/registration/RegistrationActions";
 
 const Verification = () => {
-  const [values, setValues] = useState({
-    email: "",
-    code: "",
-    username: "",
-    location: "",
-    password: "",
-    repeatPassword: "",
-  });
+  const { userValues, dispatch } = useContext(registrationContext)
 
-  const handleChange = e => {
-    setValues({ ...values, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+      dispatch({ type: ACTIONS.VALIDATE_USER, payload: e})
   };
+console.log(userValues)
 
-  console.log(values);
+   const handleSubmit = async (e) => {
+        e.preventDefault()
+       const response = await verify_user(userValues)
+        dispatch({ type: ACTIONS.VERIFY_USER, payload: response.status})
+   }
 
   return (
     <main className="verification">
@@ -26,13 +27,13 @@ const Verification = () => {
         <hr />
       </div>
 
-      <form className="verification__form">
+      <form className="verification__form" onSubmit={handleSubmit}>
         <div className="verification__input-container">
           {inputs.map(input => (
             <InputField
               key={input.id}
               {...input}
-              value={values[input.name]}
+              value={userValues[input.name]}
               handleChange={handleChange}
             />
           ))}

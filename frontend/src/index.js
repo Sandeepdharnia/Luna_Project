@@ -1,13 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { RegistrationProvider } from "./context/registration/RegistrationContext";
+import { RestaurantProvider } from "./context/restaurant/RestaurantContext";
+import { UserProvider } from "./context/users/UserContext";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <RegistrationProvider>
+      <RestaurantProvider>
+        <UserProvider>
+          <App />
+        </UserProvider>
+      </RestaurantProvider>
+    </RegistrationProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

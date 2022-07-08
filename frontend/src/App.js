@@ -17,6 +17,7 @@ import NewRestaurant from "./components/NewRestaurant";
 import UserComment from "./components/UserComment";
 import UserRestaurant from "./components/UserRestaurant";
 import UserReview from "./components/UserReview";
+import UserEdit from "./components/UserEdit";
 //import CreateReview from "./components/CreateReview";
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
               <Route path="review" element={<UserReview />} />
               <Route path="comment" element={<UserComment />} />
               <Route path="restaurant" element={<UserRestaurant />} />
+              <Route path="edit" element={<UserEdit />} />
             </Route>
             {/* <Route path="review" element={<RestaurantReview />} /> */}
             <Route path="restaurant" element={<Restaurant />} />
@@ -45,7 +47,7 @@ function App() {
             {/* Below are the pages related to the registration / sign-up */}
             <Route path="registration" element={<Registration />} />
             <Route path="verification" element={<Verification />} />
-            <Route path="login" element={<Login />} />
+            <Route path="/login" element={<Login />} />
           </Route>
         </Routes>
       </BrowserRouter>
