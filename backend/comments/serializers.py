@@ -5,7 +5,10 @@ from users.serializers import UserSerializer
 
 class CommentSerializer(serializers.ModelSerializer):
     posted_by = UserSerializer(read_only=True)
-    like_count = serializers.SerializerMethodField()
+    # like_count = serializers.SerializerMethodField()
+
+    # def get_like_count(self, instance):
+    #     return instance.li
 
     class Meta:
         model = Comment

@@ -1,10 +1,15 @@
 import "../styles/Header.scss";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
+
+  const navigate = useNavigate();
+
+  const handleNavigate = () => navigate("/");
+
   return (
     <header className="header">
-      <div className="header__logo">LUNA</div>
+      <div className="header__logo" onClick={handleNavigate}>LUNA</div>
       <div className="header__navbar">
         <ul className="header__navlist">
           <li>

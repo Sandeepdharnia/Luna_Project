@@ -10,6 +10,7 @@ import { useContext, useEffect } from "react";
 import userContext from "../context/users/UserContext";
 import { get_logged_in_user } from "../context/users/UserActions";
 import genericImg from "../assets/generic_restaurant.png";
+import UserEdit from "../components/UserEdit";
 
 const Profile = () => {
   const { loggedInUser, dispatch } = useContext(userContext);
@@ -55,10 +56,12 @@ const Profile = () => {
               {" "}
               <img src={restaurantIcon} alt="" /> Restaurants
             </NavLink>
-            <button className="profile-btn">
-              {" "}
-              <img src={editIcon} alt="" /> Edit Profile
-            </button>
+            <NavLink to="edit" className="profile-btn">
+              <button className="profile-btn">
+                {" "}
+                <img src={editIcon} alt="" /> Edit Profile
+              </button>
+            </NavLink>
           </div>
         </div>
         <div className="profile__middle-container">
@@ -103,3 +106,4 @@ const Profile = () => {
   );
 };
 export default Profile;
+

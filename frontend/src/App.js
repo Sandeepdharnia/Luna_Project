@@ -17,11 +17,13 @@ import NewRestaurant from "./components/NewRestaurant";
 import UserCommentInnerPage from "./pages/UserCommentInnerPage";
 import UserRestaurant from "./components/UserRestaurant";
 import UserReviewInnerPage from "./pages/UserReviewInnerPage";
+import UserEdit from "./components/UserEdit";
 //import CreateReview from "./components/CreateReview";
 
 function App() {
   return (
     <div className="App">
+      <h1>Test</h1>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<SharedLayout />}>
@@ -37,6 +39,7 @@ function App() {
               <Route path="review" element={<UserReviewInnerPage />} />
               <Route path="comment" element={<UserCommentInnerPage />} />
               <Route path="restaurant" element={<UserRestaurant />} />
+              <Route path="edit" element={<UserEdit />} />
             </Route>
             {/* <Route path="review" element={<RestaurantReview />} /> */}
             <Route path="restaurants/:id" element={<Restaurant />} />
@@ -45,7 +48,7 @@ function App() {
             {/* Below are the pages related to the registration / sign-up */}
             <Route path="registration" element={<Registration />} />
             <Route path="verification" element={<Verification />} />
-            <Route path="login" element={<Login />} />
+            <Route path="/login" element={<Login />} />
           </Route>
         </Routes>
       </BrowserRouter>
