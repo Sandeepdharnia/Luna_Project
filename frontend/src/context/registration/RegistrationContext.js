@@ -14,6 +14,7 @@ export const RegistrationProvider = ({ children }) => {
       repeatPassword: "",
     },
     statusCode: null,
+    token: null,
   };
 
   const [state, dispatch] = useReducer(registrationReducer, initialState);
@@ -23,6 +24,7 @@ export const RegistrationProvider = ({ children }) => {
       value={{
         userValues: state.userValues,
         statusCode: state.statusCode,
+        token: state.token,
         dispatch,
       }}
     >
