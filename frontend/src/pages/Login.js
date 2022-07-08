@@ -22,13 +22,14 @@ const Login = () => {
       const response = await check_login_user(userValues)
       dispatch({ type: ACTIONS.CHECK_LOGIN, payload: response})
       localStorage.setItem('token', response.data.access)
+      handleToken()
   }
 
-  useEffect(() => {
-      if(localStorage.getItem('token')) {
-        navigate("/")
-      }
-  }, [])
+  const handleToken = () => {
+        if (localStorage.getItem('token')) {
+            navigate("/")
+        }
+    }
 
   return (
     <main className="userLogin">
