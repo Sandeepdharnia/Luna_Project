@@ -1,4 +1,4 @@
-import { createContext, useState, useReducer } from "react";
+import { createContext, useReducer } from "react";
 import registrationReducer from "./RegistrationReducer";
 
 const RegistrationContext = createContext();

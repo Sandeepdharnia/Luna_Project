@@ -17,10 +17,10 @@ class RestaurantSerializer(serializers.ModelSerializer):
 
     def get_image_url(self, obj):
         try:
-            domain_name = 'https://luna-team1.propulsion-learn.ch'
+            domain_name = 'https://luna-team1.propulsion-learn.ch/backend'
             full_path = domain_name + obj.image.url
             return full_path
-        except Exception:
+        except BaseException:
             return None
 
     class Meta:

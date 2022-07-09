@@ -6,7 +6,6 @@ export const register_user = async email => {
   const response = await axios.post(`${LUNA_URL}/auth/registration/`, {
     email: email,
   });
-  console.log(response);
 
   return response;
 };
@@ -22,7 +21,6 @@ export const verify_user = async user_info => {
       password: user_info.password,
     }
   );
-  console.log(response);
 
   return response;
 };
@@ -32,7 +30,6 @@ export const check_login_user = async user_info => {
     email: user_info.email,
     password: user_info.password,
   });
-  console.log(response);
 
   return response;
 };
