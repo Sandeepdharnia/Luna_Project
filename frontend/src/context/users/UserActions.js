@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const BEARER_TOKEN =
-  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU3NzIzMDc0LCJpYXQiOjE2NTcyOTEwNzQsImp0aSI6IjA4Yjc5OGI3NDUxYjRiNmVhYmM4OGIwYWVjNzFhMzZmIiwidXNlcl9pZCI6IkRhbmllbCJ9.gD6UOnXaCt7oPiaYs5Tj69Z94lk14k8zJwLYu_fU56o";
+  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU3NzgyNzUwLCJpYXQiOjE2NTczNTA3NTAsImp0aSI6ImE4ZWU2MDM3YjYzODRjMmI4MDc4NTM2ZGQ4NWZmMjEwIiwidXNlcl9pZCI6ImRhbmllbGtvZXR0In0.eoFOGzivlvPdEim1TjIoA56moGleV4pv_Mcwt32TB5c";
 
 const LUNA_URL = "https://luna-team1.propulsion-learn.ch/backend/api";
 
