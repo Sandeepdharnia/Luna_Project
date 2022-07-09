@@ -3,7 +3,7 @@ import axios from "axios";
 const BEARER_TOKEN =
   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU3NzgyNzUwLCJpYXQiOjE2NTczNTA3NTAsImp0aSI6ImE4ZWU2MDM3YjYzODRjMmI4MDc4NTM2ZGQ4NWZmMjEwIiwidXNlcl9pZCI6ImRhbmllbGtvZXR0In0.eoFOGzivlvPdEim1TjIoA56moGleV4pv_Mcwt32TB5c";
 
-const LUNA_URL = "https://luna-team1.propulsion-learn.ch/backend/api";
+const LUNA_URL = "http://localhost:8000/backend/api";
 
 // get all the users
 export const list_users = async () => {
