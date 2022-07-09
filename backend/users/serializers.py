@@ -5,9 +5,9 @@ User = get_user_model()
 
 
 class UserSerializer(serializers.ModelSerializer):
-    profile_picture = serializers.SerializerMethodField()
+    image_url = serializers.SerializerMethodField()
 
-    def get_profile_picture(self, obj):
+    def get_image_url(self, obj):
         try:
             domain_name = 'https://luna-team1.propulsion-learn.ch'
             full_path = domain_name + obj.image.url
@@ -18,7 +18,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'email', 'location', 'username', 'is_active', 'first_name', 'last_name', 'date_joined',
-                  'description', 'profile_picture', 'location', 'things_i_love']
+                  'description', 'image_url', 'location', 'things_i_love']
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
