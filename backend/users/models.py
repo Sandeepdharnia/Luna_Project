@@ -3,9 +3,6 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
-def user_directory_path(instance, filename):
-    return f'user/{instance.id}/{filename}'
-
 
 class User(AbstractUser):
     USERNAME_FIELD = 'email'
@@ -20,7 +17,7 @@ class User(AbstractUser):
     phone = models.IntegerField(blank=True, null=True)
     things_i_love = models.CharField(max_length=20, blank=True, null=True)
     description = models.CharField(max_length=200, blank=True, null=True)
-    profile_picture = models.ImageField(blank=True, null=True, upload_to=user_directory_path)
+    profile_picture = models.ImageField(blank=True, null=True)
     # is_active = models.BooleanField(default=False)
 
 

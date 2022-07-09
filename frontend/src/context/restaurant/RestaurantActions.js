@@ -1,9 +1,9 @@
 import axios from "axios";
 
 const BEARER_TOKEN =
-  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU3NzIzMDc0LCJpYXQiOjE2NTcyOTEwNzQsImp0aSI6IjA4Yjc5OGI3NDUxYjRiNmVhYmM4OGIwYWVjNzFhMzZmIiwidXNlcl9pZCI6IkRhbmllbCJ9.gD6UOnXaCt7oPiaYs5Tj69Z94lk14k8zJwLYu_fU56o";
+  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU3Nzg2NzU4LCJpYXQiOjE2NTczNTQ3NTgsImp0aSI6Ijc1ZmFlMWU2NWNjZDQ5ZGE4OWVmYWM4ZGJhMDZkYTg0IiwidXNlcl9pZCI6IkRhbmllbCJ9.jYOSBUAMD2TEJkyTPlSWwRc63gK4gqe1Zisq7qI0UKY";
 
-const LUNA_URL = "https://luna-team1.propulsion-learn.ch/backend/api";
+const LUNA_URL = "http://localhost:8000/backend/api";
 
 //get all restaurants
 export const list_restaurants = async () => {
